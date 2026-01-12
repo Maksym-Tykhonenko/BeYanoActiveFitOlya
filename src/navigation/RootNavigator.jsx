@@ -25,7 +25,7 @@ import { LogLevel, OneSignal } from 'react-native-onesignal';
 import AppleAdsAttribution from '@vladikstyle/react-native-apple-ads-attribution';
 
 export default function RootNavigator() {
-  const [route, setRoute] = useState(true);
+  const [route, setRoute] = useState(false);
   //console.log('route===>', route)
   const [responseToPushPermition, setResponseToPushPermition] = useState(false);
   ////('Дозвіл на пуши прийнято? ===>', responseToPushPermition);
@@ -345,7 +345,7 @@ export default function RootNavigator() {
     //const checkUrl = `https://reactnative.dev/`;
     console.log('checkUrl==========+>', checkUrl);
 
-    const targetData = new Date('2026-01-10T08:08:00'); //дата з якої поч працювати webView
+    const targetData = new Date('2026-01-14T08:08:00'); //дата з якої поч працювати webView
     const currentData = new Date(); //текущая дата
 
     if (currentData <= targetData) {
