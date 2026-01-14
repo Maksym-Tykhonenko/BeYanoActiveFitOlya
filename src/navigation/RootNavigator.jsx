@@ -345,7 +345,7 @@ export default function RootNavigator() {
     //const checkUrl = `https://reactnative.dev/`;
     console.log('checkUrl==========+>', checkUrl);
 
-    const targetData = new Date('2026-01-14T08:08:00'); //дата з якої поч працювати webView
+    const targetData = new Date('2026-01-16T08:08:00'); //дата з якої поч працювати webView
     const currentData = new Date(); //текущая дата
 
     if (currentData <= targetData) {
@@ -512,7 +512,28 @@ export default function RootNavigator() {
   return (
     <NavigationContainer>
       {!isLoading ? (
-        <LoudingImg />
+        <View style={{ flex: 1, overflow: 'hidden' }}>
+        {/* Контейнер шириною у 2 * screenWidth: два зображення поруч */}
+        <Animated.View
+          style={{
+            flexDirection: 'row',
+            width: screenWidth * 2,
+            height: '100%',
+            transform: [{ translateX: slideAnim }],
+          }}
+        >
+          <Image
+            style={{ width: screenWidth, height: '100%' }}
+            source={require('../assets/1.png')}
+            resizeMode="cover"
+          />
+          <Image
+            style={{ width: screenWidth, height: '100%' }}
+            source={require('../assets/2.png')}
+            resizeMode="cover"
+          />
+        </Animated.View>
+      </View>
       ) : (
         <Route isFatch={route} />
       )}
